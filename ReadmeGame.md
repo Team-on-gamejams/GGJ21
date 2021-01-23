@@ -1,5 +1,5 @@
 Game page - https://teamon.itch.io/gametemplate
-Source code - https://github.com/Team-on/UnityGameTemplate
+Source code - https://github.com/Enter-your-name-studios/GGJ21
 
 
 Available in Windows, OSX, Linux, Android and Web 
@@ -15,3 +15,4 @@ Make sure to set the x86_64 as executable before running.
 
 Used assets:
 https://github.com/Team-on/UnityGameTemplate/wiki/Used-assets
+https://github.com/Enter-your-name-studios/GGJ21/blob/main/README.md
