@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TemplateGameManager
   m_EditorClassIdentifier: 
   startResources: 
-  buildNameString: 0.1 - Jam edition (1/4/2021)
+  buildNameString: 0.1 - Jam edition (1/23/2021)
   productName: GameTemplate
   uiinput: {fileID: 0}
   eventSystem: {fileID: 0}
