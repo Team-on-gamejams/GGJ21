@@ -1,5 +1,5 @@
- # [GAME_NAME](GAME_LINK)
-Made in X hours for [JAM_NAME](JAM_LINK)  
+ # [GGJ21](https://teamon.itch.io/ggj21)
+Made in X hours for [Global Game Jam Online 2021](https://globalgamejam.org/2021/)  
 Theme: THEME  
 
 Short desc  
@@ -10,7 +10,7 @@ Long desc
 
 
 # Downloads and Links
-Available in [Windows, OSX, Linux, Android and Web](GAME_LINK).  
+Available in [Windows, OSX, Linux, Android and Web](https://teamon.itch.io/ggj21).  
 Consider downloading a game instead of playing the web version for better performance and stability.  
 If you encounter any problem, please leave a issue!  
 
@@ -55,11 +55,3 @@ The Global Game Jam is the world's largest game jam event taking place around th
 ![Screenshot1](Screenshots/Screenshot1.png)  
 ![Screenshot2](Screenshots/Screenshot2.png)  
 ![Screenshot3](Screenshots/Screenshot3.png)  
-
-itchio
-tags : singleplayer, 2d, open-source, drm-free, linear, indie, experimental, casual, short
-
-github
-tags: game, unity, unity3d, jam, gamejam
-itchio, gamejolt, google-play
-windows-game, linux-game, osx-game, web-game, android-game
