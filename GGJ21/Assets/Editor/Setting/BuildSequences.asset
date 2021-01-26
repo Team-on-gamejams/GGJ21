@@ -21,7 +21,7 @@ MonoBehaviour:
       outputRoot: Builds/
       middlePath: $NAME_TEST/$NAME$EXECUTABLE
       dirPathForPostProcess: $NAME_TEST
-      isPassbyBuild: 1
+      isPassbyBuild: 0
       scriptingDefineSymbolsOverride: 
       targetGroup: 1
       target: 5
@@ -31,6 +31,24 @@ MonoBehaviour:
       needZip: 1
       needItchPush: 0
       itchChannel: windows-testing
+      needGithubPush: 0
+      needGamejolthPush: 0
+      needSteamPush: 0
+      needGoogleDrivePush: 0
+    - isEnabled: 0
+      outputRoot: Builds/
+      middlePath: $NAME_$VERSION_$PLATFORM/$NAME_$VERSION/$NAME$EXECUTABLE
+      dirPathForPostProcess: $NAME_$VERSION_$PLATFORM
+      isPassbyBuild: 0
+      scriptingDefineSymbolsOverride: 
+      targetGroup: 1
+      target: 5
+      options: 0
+      isVirtualRealitySupported: 0
+      isReleaseBuild: 0
+      needZip: 0
+      needItchPush: 0
+      itchChannel: windows-32
       needGithubPush: 0
       needGamejolthPush: 0
       needSteamPush: 0
