@@ -40,7 +40,6 @@ The Global Game Jam is the world's largest game jam event taking place around th
 
 # Credits
  * [Team-on](https://github.com/Team-on) - programmer
- * [Long-as-Python](https://github.com/Long-as-Python) - programmer
  * [ggrusha art](https://www.instagram.com/ggrusha_art/) - 2d artist
  * [shintaro-kk](https://www.instagram.com/shintaro_kk) - sound designer/narrative designer/game designer
 
