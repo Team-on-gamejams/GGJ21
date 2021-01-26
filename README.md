@@ -1,6 +1,6 @@
- # [GGJ21](https://teamon.itch.io/ggj21)
-Made in X hours for [Global Game Jam Online 2021](https://globalgamejam.org/2021/)  
-Theme: THEME  
+ # [Animal Shelter: Lost & Found](https://teamon.itch.io/ggj21)
+Made in 48 hours for [Global Game Jam Online 2021](https://globalgamejam.org/2021/)  
+Theme: Lost & Found  
 
 Short desc  
 
