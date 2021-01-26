@@ -38,6 +38,13 @@ The Global Game Jam is the world's largest game jam event taking place around th
  * Share the source code of your project
 
 
+# Credits
+ * [Team-on](https://github.com/Team-on) - programmer
+ * [Long-as-Python](https://github.com/Long-as-Python) - programmer
+ * [ggrusha art](https://www.instagram.com/ggrusha_art/) - 2d artist
+ * [shintaro-kk](https://www.instagram.com/shintaro_kk) - sound designer/narrative designer/game designer
+
+
 # Used tools:
  * Unity 2020.2.0f1
  * Visual Studio 2019
