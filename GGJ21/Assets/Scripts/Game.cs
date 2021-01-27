@@ -3,7 +3,6 @@ using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 using NaughtyAttributes;
@@ -24,6 +23,7 @@ public class Game : MonoBehaviour {
 
 	[Header("Refs"), Space]
 	[SerializeField] PetCard[] cards;
+	[SerializeField] CardsSelector cardsSelector;
 	[SerializeField] ClientDialog dialog;
 
 	[Header("Prefab Refs"), Space]
@@ -35,29 +35,17 @@ public class Game : MonoBehaviour {
 	[ReadOnly, ShowNonSerializedField] float currLevelTime;
 
 	bool isPlaying = false;
-	bool isCanSelect = false;
 
-	PlayerInputActions actions;
+	void Start() {
+		cardsSelector.OnSelectLeft += OnSelectLeft;
+		cardsSelector.OnSelectRight += OnSelectRight;
 
-	private void Awake() {
-		actions = new PlayerInputActions();
-		actions.Enable();
-
-		actions.Player.SelectLeft.started += SelectLeftCardStarted;
-		actions.Player.SelectRight.started += SelectRightCardStarted;
-		actions.Player.SelectLeft.performed += SelectLeftCard;
-		actions.Player.SelectRight.performed += SelectRightCard;
+		StartGame();
 	}
 
 	private void OnDestroy() {
-		actions.Player.SelectLeft.started -= SelectLeftCardStarted;
-		actions.Player.SelectRight.started -= SelectRightCardStarted;
-		actions.Player.SelectLeft.performed -= SelectLeftCard;
-		actions.Player.SelectRight.performed -= SelectRightCard;
-	}
-
-	void Start() {
-		StartGame();
+		cardsSelector.OnSelectLeft -= OnSelectLeft;
+		cardsSelector.OnSelectRight -= OnSelectRight;
 	}
 
 	void Update() {
@@ -121,44 +109,20 @@ public class Game : MonoBehaviour {
 			StartLevel();
 		}
 		else {
-			isCanSelect = true;
+			cardsSelector.isCanSelect = true;
 		}
 	}
 
-	void SelectLeftCardStarted(InputAction.CallbackContext context) {
-		if (!isCanSelect)
-			return;
-
-		Debug.Log("Hover On Left");
-
-	}
-
-	void SelectRightCardStarted(InputAction.CallbackContext context) {
-		if (!isCanSelect)
-			return;
-
-		Debug.Log("Hover On Right");
-
-	}
-
-	void SelectLeftCard(InputAction.CallbackContext context) {
-		if (!isCanSelect)
-			return;
-
-		Debug.Log("Select Left");
+	void OnSelectLeft() {
 		OnSelectAnyCard();
 	}
 
-	void SelectRightCard(InputAction.CallbackContext context) {
-		if (!isCanSelect)
-			return;
-
-		Debug.Log("Select Right");
+	void OnSelectRight() {
 		OnSelectAnyCard();
 	}
 
 	void OnSelectAnyCard() {
-		isCanSelect = false;
+		cardsSelector.isCanSelect = false;
 		++currClient;
 		OnNewClient();
 	}
