@@ -10,7 +10,24 @@ using NaughtyAttributes;
 using Random = UnityEngine.Random;
 
 public class CardsSelector : MonoBehaviour {
-	[NonSerialized] public bool IsCanSelect = false;
+	public bool IsCanSelect {
+		get => isCanSelect;
+		set {
+			bool oldValue = isCanSelect;
+			isCanSelect = value;
+
+			if (!oldValue && value) {
+				if (isMouseOverLeft)
+					SelectLeftCardStart();
+				else if (isMouseOverRight)
+					SelectRightCardStart();
+			}
+				
+		}
+	}
+	bool isCanSelect = false;
+	bool isMouseOverLeft = false;
+	bool isMouseOverRight = false;
 
 	public Action OnSelectLeft;
 	public Action OnSelectRight;
@@ -55,6 +72,7 @@ public class CardsSelector : MonoBehaviour {
 		}
 	}
 
+	#region KEYBOARD
 	public void SelectLeftCardStarted(InputAction.CallbackContext context) {
 		if (!IsCanSelect || rightCard.IsSelected)
 			return;
@@ -89,23 +107,51 @@ public class CardsSelector : MonoBehaviour {
 
 		SelectRightCard();
 
-		if(selectTime != 0) {
+		if (selectTime != 0) {
 			selectTime = 0;
 			IsCanSelect = false;
 		}
 	}
 
+	#endregion
+
+	#region Mouse
+	public void MouseSelectLeftCardStart() {
+		isMouseOverLeft = true;
+		SelectLeftCardStart();
+	}
+
+	public void MouseSelectRightCardStart() {
+		isMouseOverRight = true;
+		SelectRightCardStart();
+	}
+
+	public void MouseSelectLeftCardEnd() {
+		isMouseOverLeft = false;
+		SelectLeftCardEnd();
+	}
+
+	public void MouseSelectRightCardEnd() {
+		isMouseOverRight = false;
+		SelectRightCardEnd();
+	}
+	#endregion
+
+	#region BASE
 	public void SelectLeftCardStart() {
-		if (!IsCanSelect)
+		if (!IsCanSelect) {
 			return;
+		}
 
 		Debug.Log("Hover On Left");
 		leftCard.Select();
 	}
 
 	public void SelectRightCardStart() {
-		if (!IsCanSelect)
+		if (!IsCanSelect) {
 			return;
+		}
+
 
 		Debug.Log("Hover On Right");
 		rightCard.Select();
@@ -138,4 +184,7 @@ public class CardsSelector : MonoBehaviour {
 		Debug.Log("Not Hover On Right");
 		rightCard.Deselect();
 	}
+	#endregion
+
+
 }
