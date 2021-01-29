@@ -42,7 +42,7 @@ public class ClientDialog : MonoBehaviour {
 	}
 
 	public void Hide() {
-		LeanTween.cancel(cg.gameObject);
+		LeanTween.cancel(cg.gameObject, true);
 		LeanTweenEx.ChangeAlpha(cg, 0.0f, showHideTime);
 	}
 }
