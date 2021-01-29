@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wantedPet: 0
   wantedAccessory: 0
+  dialogText: "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit, fff\nincididunt
+    ut labore et dolor"

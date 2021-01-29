@@ -1,4 +1,4 @@
-Game page - https://teamon.itch.io/gametemplate
+Game page - https://teamon.itch.io/ggj21
 Source code - https://github.com/Enter-your-name-studios/GGJ21
 
 
