@@ -2753,8 +2753,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Lorem ipsum dolor sit amet, \nconsectetur adipiscing elit, fff\nincididunt
-    ut labore et dolor"
+  m_text: 'Text
+
+    Long-long text
+
+    multiline ling text
+
+    one more line'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2797,7 +2802,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -2895,6 +2900,7 @@ GameObject:
   - component: {fileID: 2067065491}
   - component: {fileID: 2067065493}
   - component: {fileID: 2067065494}
+  - component: {fileID: 2067065496}
   m_Layer: 5
   m_Name: DialogBack
   m_TagString: Untagged
@@ -3012,6 +3018,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e168b3db07f4a3544b7a2b8f8391a724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showHideTime: 0.2
+  timeForOneChar: 0.01
+  writeAudioClip: {fileID: 8300000, guid: df3b88e7c335b1f4e8245f6fba5f4dd6, type: 3}
+  cg: {fileID: 2067065496}
+  textField: {fileID: 1976347008}
+--- !u!225 &2067065496
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067065489}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &4891988291432766806
 PrefabInstance:
   m_ObjectHideFlags: 0

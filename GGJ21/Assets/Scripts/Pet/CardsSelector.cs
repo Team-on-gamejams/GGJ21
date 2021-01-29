@@ -10,7 +10,7 @@ using NaughtyAttributes;
 using Random = UnityEngine.Random;
 
 public class CardsSelector : MonoBehaviour {
-	[NonSerialized] public bool isCanSelect = false;
+	[NonSerialized] public bool IsCanSelect = false;
 
 	public Action OnSelectLeft;
 	public Action OnSelectRight;
@@ -42,48 +42,61 @@ public class CardsSelector : MonoBehaviour {
 	}
 
 	private void Update() {
-		if (isCanSelect && selectTime > 0) {
+		if (IsCanSelect && selectTime > 0) {
 			selectTime -= Time.deltaTime;
 
 			if(selectTime <= 0) {
-				selectTime = -1;
-				isCanSelect = false;
-				SelectLeftCardEnd();
-				SelectRightCardEnd();
+				selectTime = 0;
+				if(leftCard.IsSelected)
+					SelectLeftCardEnd();
+				if(rightCard.IsSelected)
+					SelectRightCardEnd();
 			}
 		}
 	}
 
 	public void SelectLeftCardStarted(InputAction.CallbackContext context) {
+		if (!IsCanSelect || rightCard.IsSelected)
+			return;
+
 		selectTime = timeToDeselect;
 		SelectLeftCardStart();
 	}
 
 	public void SelectRightCardStarted(InputAction.CallbackContext context) {
+		if (!IsCanSelect || leftCard.IsSelected)
+			return;
+
 		selectTime = timeToDeselect;
 		SelectRightCardStart();
 	}
 
 	public void SelectLeftCard(InputAction.CallbackContext context) {
+		if (!IsCanSelect || rightCard.IsSelected)
+			return;
+
 		SelectLeftCard();
 
 		if (selectTime != 0) {
 			selectTime = 0;
-			isCanSelect = true;
+			IsCanSelect = false;
 		}
 	}
 
 	public void SelectRightCard(InputAction.CallbackContext context) {
+		if (!IsCanSelect || leftCard.IsSelected)
+			return;
+
 		SelectRightCard();
 
 		if(selectTime != 0) {
 			selectTime = 0;
-			isCanSelect = true;
+			IsCanSelect = false;
 		}
 	}
 
 	public void SelectLeftCardStart() {
-		if (!isCanSelect)
+		if (!IsCanSelect)
 			return;
 
 		Debug.Log("Hover On Left");
@@ -91,7 +104,7 @@ public class CardsSelector : MonoBehaviour {
 	}
 
 	public void SelectRightCardStart() {
-		if (!isCanSelect)
+		if (!IsCanSelect)
 			return;
 
 		Debug.Log("Hover On Right");
@@ -99,7 +112,7 @@ public class CardsSelector : MonoBehaviour {
 	}
 
 	public void SelectLeftCard() {
-		if (!isCanSelect || !leftCard.IsSelected)
+		if (!IsCanSelect || !leftCard.IsSelected)
 			return;
 
 		Debug.Log("Select Left");
@@ -108,7 +121,7 @@ public class CardsSelector : MonoBehaviour {
 	}
 
 	public void SelectRightCard() {
-		if (!isCanSelect || !rightCard.IsSelected)
+		if (!IsCanSelect || !rightCard.IsSelected)
 			return;
 
 		Debug.Log("Select Right");

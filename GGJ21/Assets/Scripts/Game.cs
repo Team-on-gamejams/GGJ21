@@ -65,20 +65,23 @@ public class Game : MonoBehaviour {
 
 	void StartLevel() {
 		Debug.Log("Start level");
-		levelUI.UpdateValue("!You win the game!");
 
 		if (currLevel == levels.Length) {
+			levelUI.UpdateValue("!You win the game!");
 			EndGame();
 		}
 		else {
 			isPlaying = enabled = true;
-
 			currLevelTime = Level.secondsForLevel;
+
 			timeLeftUI.UpdateValue(currLevelTime);
 			levelUI.UpdateValue($"Level: {currLevel + 1}");
+			clientLeftUI.UpdateValue(0, Level.clients.Length);
 
-			currClient = 0;
-			OnNewClient();
+			LeanTween.delayedCall(1.0f, () => {
+				currClient = 0;
+				OnNewClient();
+			});
 		}
 	}
 
@@ -100,8 +103,6 @@ public class Game : MonoBehaviour {
 	}
 
 	void OnNewClient() {
-		clientLeftUI.UpdateValue(currClient, Level.clients.Length);
-
 		if(currClient == Level.clients.Length) {
 			EndLevel();
 
@@ -109,7 +110,10 @@ public class Game : MonoBehaviour {
 			StartLevel();
 		}
 		else {
-			cardsSelector.isCanSelect = true;
+			cardsSelector.IsCanSelect = true;
+
+			dialog.ShowText($"[{Client.wantedPet}] [{Client.wantedAccessory}] - {Client.dialogText}");
+			//dialog.ShowText(Client.dialogText);
 		}
 	}
 
@@ -122,8 +126,14 @@ public class Game : MonoBehaviour {
 	}
 
 	void OnSelectAnyCard() {
-		cardsSelector.isCanSelect = false;
-		++currClient;
-		OnNewClient();
+		clientLeftUI.UpdateValue(currClient + 1, Level.clients.Length);
+		dialog.Hide();
+		
+		cardsSelector.IsCanSelect = false;
+
+		LeanTween.delayedCall(1.0f, () => {
+			++currClient;
+			OnNewClient();
+		});
 	}
 }

@@ -12,4 +12,5 @@ using Random = UnityEngine.Random;
 public class Client : ScriptableObject {
 	public PetType wantedPet;
 	public AccessoryType wantedAccessory;
+	[Multiline] public string dialogText;
 }

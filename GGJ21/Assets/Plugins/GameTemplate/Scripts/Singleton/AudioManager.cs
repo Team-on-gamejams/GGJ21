@@ -393,7 +393,7 @@ public class AudioManager : Singleton<AudioManager> {
 		ChangeASVolume(source, volume, crossfadeTime);
 	}
 
-	void ChangeASVolume(AudioSource source, float volume, float time) {
+	public void ChangeASVolume(AudioSource source, float volume, float time) {
 		if (source != null) {
 			LeanTween.cancel(source.gameObject, false);
 			if (time == 0) {
