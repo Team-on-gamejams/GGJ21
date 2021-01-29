@@ -1783,7 +1783,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 269999651}
         m_TargetAssemblyTypeName: CardsSelector, GeneralGameAssembly
-        m_MethodName: SelectLeftCardStart
+        m_MethodName: MouseSelectLeftCardStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1798,7 +1798,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 269999651}
         m_TargetAssemblyTypeName: CardsSelector, GeneralGameAssembly
-        m_MethodName: SelectLeftCardEnd
+        m_MethodName: MouseSelectLeftCardEnd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2432,7 +2432,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 269999651}
         m_TargetAssemblyTypeName: CardsSelector, GeneralGameAssembly
-        m_MethodName: SelectRightCardStart
+        m_MethodName: MouseSelectRightCardStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2447,7 +2447,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 269999651}
         m_TargetAssemblyTypeName: CardsSelector, GeneralGameAssembly
-        m_MethodName: SelectRightCardEnd
+        m_MethodName: MouseSelectRightCardEnd
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -19,6 +19,16 @@ public static class InputEx {
 				return true;
 		}
 
+		if(Keyboard.current?.spaceKey?.wasPressedThisFrame ?? false) {
+			return false;
+		}
+		if (Keyboard.current?.enterKey?.wasPressedThisFrame ?? false) {
+			return false;
+		}
+		if (Keyboard.current?.numpadEnterKey?.wasPressedThisFrame ?? false) {
+			return false;
+		}
+
 		return (Keyboard.current?.anyKey?.wasPressedThisFrame ?? false) ||
 			(Keyboard.current?.spaceKey?.wasPressedThisFrame ?? false) ||
 
