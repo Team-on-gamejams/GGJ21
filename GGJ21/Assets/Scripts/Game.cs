@@ -10,11 +10,12 @@ using OneLine;
 using Random = UnityEngine.Random;
 
 public class Game : MonoBehaviour {
-	Level Level => levels[currLevel];
-	Client Client => levels[currLevel].clients[currClient];
+	Level Level { get; set; }
+	Client Client { get; set; }
 
-	[Header("Levels")]
-	[SerializeField] Level[] levels;
+	[Header("Data")]
+	[SerializeField] [NaughtyAttributes.MinMaxSlider(0, 3600)] Vector2 timerRange = new Vector2(60, 360f);
+	[SerializeField] [NaughtyAttributes.MinMaxSlider(0, 100)] Vector2 clientsRange = new Vector2(5, 20);
 
 	[Header("UI"), Space]
 	[SerializeField] TimeLeftUI timeLeftUI;
@@ -30,8 +31,8 @@ public class Game : MonoBehaviour {
 	[SerializeField] GameObject clientMoverPrefab;
 
 	[Header("Debug data"), Space]
-	[ReadOnly, SerializeField] int currLevel;
-	[ReadOnly, ShowNonSerializedField] int currClient;
+	[ReadOnly, ShowNonSerializedField] int currLevelId;
+	[ReadOnly, ShowNonSerializedField] int currClientId;
 	[ReadOnly, ShowNonSerializedField] float currLevelTime;
 
 	bool isPlaying = false;
@@ -51,7 +52,7 @@ public class Game : MonoBehaviour {
 	void Update() {
 		if (isPlaying) {
 			currLevelTime -= Time.deltaTime;
-			if(currLevelTime <= 0) 
+			if (currLevelTime <= 0)
 				currLevelTime = 0;
 
 			timeLeftUI.UpdateValue(currLevelTime);
@@ -66,23 +67,21 @@ public class Game : MonoBehaviour {
 	void StartLevel() {
 		Debug.Log("Start level");
 
-		if (currLevel == levels.Length) {
-			levelUI.UpdateValue("!You win the game!");
-			EndGame();
-		}
-		else {
-			isPlaying = enabled = true;
-			currLevelTime = Level.secondsForLevel;
+		Level = new Level(timerRange.GetRandomValueFloat(), clientsRange.GetRandomValue());
 
-			timeLeftUI.UpdateValue(currLevelTime);
-			levelUI.UpdateValue($"Level: {currLevel + 1}");
-			clientLeftUI.UpdateValue(0, Level.clients.Length);
+		++currLevelId;
+		currClientId = 0;
 
-			LeanTween.delayedCall(1.0f, () => {
-				currClient = 0;
-				OnNewClient();
-			});
-		}
+		isPlaying = enabled = true;
+		currLevelTime = Level.secondsForLevel;
+
+		timeLeftUI.UpdateValue(currLevelTime);
+		levelUI.UpdateValue($"Level: {currLevelId}");
+		clientLeftUI.UpdateValue(0, Level.clients);
+
+		LeanTween.delayedCall(1.0f, () => {
+			OnNewClient();
+		});
 	}
 
 	void EndLevel() {
@@ -94,22 +93,20 @@ public class Game : MonoBehaviour {
 	void StartGame() {
 		Debug.Log("Start game");
 
-		currLevel = 0;
+		currLevelId = 0;
 		StartLevel();
-	}
-	
-	void EndGame() {
-		Debug.Log("End game");
 	}
 
 	void OnNewClient() {
-		if(currClient == Level.clients.Length) {
+		if (currClientId == Level.clients) {
 			EndLevel();
 
-			++currLevel;
+			++currLevelId;
 			StartLevel();
 		}
 		else {
+			Client = new Client(PetType.None, AccessoryType.None, "Dialog text");
+
 			cardsSelector.IsCanSelect = true;
 
 			dialog.ShowText($"[{Client.wantedPet}] [{Client.wantedAccessory}] - {Client.dialogText}");
@@ -126,13 +123,13 @@ public class Game : MonoBehaviour {
 	}
 
 	void OnSelectAnyCard() {
-		clientLeftUI.UpdateValue(currClient + 1, Level.clients.Length);
+		clientLeftUI.UpdateValue(currClientId + 1, Level.clients);
 		dialog.Hide();
-		
+
 		cardsSelector.IsCanSelect = false;
 
 		LeanTween.delayedCall(1.0f, () => {
-			++currClient;
+			++currClientId;
 			OnNewClient();
 		});
 	}

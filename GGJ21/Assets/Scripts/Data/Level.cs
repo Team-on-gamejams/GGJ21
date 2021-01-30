@@ -9,21 +9,16 @@ using NaughtyAttributes;
 using OneLine;
 using Random = UnityEngine.Random;
 
-
-[CreateAssetMenu(fileName = "Level", menuName = "Level")]
-public class Level : ScriptableObject {
-	[Header("Time")]
+public class Level {
 	public float secondsForLevel;
-	[OneLine] [Tooltip("Stars - (0, 1, 2, 3)")] public StartData starsTimings;
+	public int clients;
 
-	[Space]
-	[OneLine.Expandable] public Client[] clients;
+	public Level() {
 
-	[Serializable]
-	public struct StartData {
-		public float secondsForStar0;
-		public float secondsForStar1;
-		public float secondsForStar2;
-		public float secondsForStar3;
+	}
+
+	public Level(float secondsForLevel, int clients) {
+		this.secondsForLevel = secondsForLevel;
+		this.clients = clients;
 	}
 }
