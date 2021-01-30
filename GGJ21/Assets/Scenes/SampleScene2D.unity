@@ -1449,10 +1449,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d397a78152a6f44799e49ffba4536e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels:
-  - {fileID: 11400000, guid: b0d5b688390f28f4ea12f14758fcc4a5, type: 2}
-  - {fileID: 11400000, guid: e24e4cacef39b4544a034e4a14539ab8, type: 2}
-  - {fileID: 11400000, guid: 94779065ddaa2a64ba18f06bdff2ea02, type: 2}
+  timerRange: {x: 60, y: 360}
+  clientsRange: {x: 5, y: 20}
   timeLeftUI: {fileID: 1075979145}
   clientLeftUI: {fileID: 524165526}
   levelUI: {fileID: 1347415321}
@@ -1463,7 +1461,6 @@ MonoBehaviour:
   dialog: {fileID: 2067065495}
   clientMoverPrefab: {fileID: 7318900276332637494, guid: d62c419732dbe134286a33722f35444a,
     type: 3}
-  currLevel: 0
 --- !u!4 &699603688
 Transform:
   m_ObjectHideFlags: 0
