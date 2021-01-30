@@ -14,6 +14,7 @@ public enum PetType : byte {
 	Cat2 = 2,
 	Cat3 = 3,
 	Dog1 = 4,
+	Dog2 = 5,
 }
 
 public enum AccessoryType : byte {
