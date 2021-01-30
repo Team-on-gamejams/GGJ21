@@ -10,6 +10,8 @@ using Random = UnityEngine.Random;
 
 public class PetCard : MonoBehaviour {
 	public bool IsSelected { private set; get; }
+	public PetType petType { private set; get; }
+	public AccessoryType accessoryType { private set; get; }
 
 	[Header("Data")]
 	[SerializeField] PetData[] pets;
@@ -22,13 +24,18 @@ public class PetCard : MonoBehaviour {
 
 
 	#region Data
-	public void SetCard(PetType petType, AccessoryType accessoryType) {
+	public void SetCard(PetType _petType, AccessoryType _accessoryType) {
+		petType = _petType;
+		accessoryType = _accessoryType;
+
 		PetData petData;
 		PetSpriteData petSprites;
 		Sprite accessorySprite;
 
 		if(petType == PetType.None) {
-			petData = pets.Random();
+			int randomNum = Random.Range(0, pets.Length);
+			petData = pets[randomNum];
+			petType = (PetType)(randomNum);
 		}
 		else {
 			petData = pets[(int)(petType) - 1];
@@ -36,7 +43,9 @@ public class PetCard : MonoBehaviour {
 		petSprites = petData.sprites.Random();
 
 		if (accessoryType == AccessoryType.None) {
-			accessorySprite = petData.accessories.Random();
+			int randomNum = Random.Range(0, petData.accessories.Length);
+			accessorySprite = petData.accessories[randomNum];
+			accessoryType = (AccessoryType)(randomNum);
 		}
 		else {
 			accessorySprite = petData.accessories[(int)(accessoryType) - 1]; ;

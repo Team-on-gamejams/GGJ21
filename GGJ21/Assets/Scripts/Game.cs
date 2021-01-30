@@ -104,7 +104,14 @@ public class Game : MonoBehaviour {
 			StartLevel();
 		}
 		else {
-			Client = new Client(PetType.None, AccessoryType.None, "Dialog text");
+			Array pets = Enum.GetValues(typeof(PetType));
+			Array accessory = Enum.GetValues(typeof(AccessoryType));
+
+			Client = new Client(
+				(PetType)pets.GetValue(Random.Range(0, pets.Length)),
+				(AccessoryType)accessory.GetValue(Random.Range(0, pets.Length)),
+				"Dialog text"
+			);
 
 			cardsSelector.IsCanSelect = true;
 
@@ -123,21 +130,38 @@ public class Game : MonoBehaviour {
 	}
 
 	void OnSelectLeft() {
-		OnSelectAnyCard();
+		bool isRight = CheckCard(0);
+		OnSelectAnyCard(isRight);
 	}
 
 	void OnSelectRight() {
-		OnSelectAnyCard();
+		bool isRight = CheckCard(1);
+		OnSelectAnyCard(isRight);
 	}
 
-	void OnSelectAnyCard() {
-		clientLeftUI.UpdateValue(currClientId + 1, Level.clients);
+	bool CheckCard(int id) {
+		bool isRight = true;
+
+		if (Client.wantedPet != PetType.None)
+			isRight = Client.wantedPet == cards[id].petType;
+
+		if (isRight && Client.wantedAccessory != AccessoryType.None)
+			isRight = Client.wantedAccessory == cards[id].accessoryType;
+
+		Debug.Log($"Is right: {isRight}");
+		return isRight;
+	}
+
+	void OnSelectAnyCard(bool isRight) {
+		if(isRight)
+			clientLeftUI.UpdateValue(currClientId + 1, Level.clients);
 		dialog.Hide();
 
 		cardsSelector.IsCanSelect = false;
 
 		LeanTween.delayedCall(1.0f, () => {
-			++currClientId;
+			if(isRight)
+				++currClientId;
 			OnNewClient();
 		});
 	}
