@@ -3336,6 +3336,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 425988700253467093, guid: d62c419732dbe134286a33722f35444a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2161882598265808968, guid: d62c419732dbe134286a33722f35444a,
         type: 3}
       propertyPath: m_Color.a
@@ -3587,46 +3592,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7318900276332637492, guid: d62c419732dbe134286a33722f35444a,
+    - target: {fileID: 2161882598265808968, guid: d62c419732dbe134286a33722f35444a,
         type: 3}
-      propertyPath: m_Size.x
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318900276332637492, guid: d62c419732dbe134286a33722f35444a,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 10.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318900276332637492, guid: d62c419732dbe134286a33722f35444a,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3a5222feecc643945bb393bad76acd1a,
-        type: 3}
-    - target: {fileID: 7318900276332637492, guid: d62c419732dbe134286a33722f35444a,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318900276332637492, guid: d62c419732dbe134286a33722f35444a,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7318900276332637493, guid: d62c419732dbe134286a33722f35444a,
         type: 3}
       propertyPath: m_RootOrder
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318900276332637493, guid: d62c419732dbe134286a33722f35444a,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318900276332637493, guid: d62c419732dbe134286a33722f35444a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7318900276332637493, guid: d62c419732dbe134286a33722f35444a,
         type: 3}
@@ -3682,11 +3656,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Client
-      objectReference: {fileID: 0}
-    - target: {fileID: 7318900276332637494, guid: d62c419732dbe134286a33722f35444a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d62c419732dbe134286a33722f35444a, type: 3}
