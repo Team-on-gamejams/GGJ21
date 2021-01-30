@@ -104,13 +104,16 @@ public class Game : MonoBehaviour {
 			StartLevel();
 		}
 		else {
+			bool randomPet = Random.Range(0, 2) == 1;
 			Array pets = Enum.GetValues(typeof(PetType));
 			Array accessory = Enum.GetValues(typeof(AccessoryType));
+			PetType pet = randomPet ? (PetType)pets.GetValue(Random.Range(0, pets.Length)) : PetType.None;
+			AccessoryType acs = !randomPet ? (AccessoryType)accessory.GetValue(Random.Range(0, accessory.Length)) : AccessoryType.None;
 
 			Client = new Client(
-				(PetType)pets.GetValue(Random.Range(0, pets.Length)),
-				(AccessoryType)accessory.GetValue(Random.Range(0, pets.Length)),
-				"Dialog text"
+				pet,
+				acs,
+				$"[{pet}] [{acs}] - Dialog text"
 			);
 
 			cardsSelector.IsCanSelect = true;
@@ -124,8 +127,7 @@ public class Game : MonoBehaviour {
 				cards[1].SetCard(Client.wantedPet, Client.wantedAccessory);
 			}
 
-			dialog.ShowText($"[{Client.wantedPet}] [{Client.wantedAccessory}] - {Client.dialogText}");
-			//dialog.ShowText(Client.dialogText);
+			dialog.ShowText(Client.dialogText);
 		}
 	}
 

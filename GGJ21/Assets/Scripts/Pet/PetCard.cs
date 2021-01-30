@@ -43,16 +43,23 @@ public class PetCard : MonoBehaviour {
 		petSprites = petData.sprites.Random();
 
 		if (accessoryType == AccessoryType.None) {
-			int randomNum = Random.Range(0, petData.accessories.Length);
-			accessorySprite = petData.accessories[randomNum];
-			accessoryType = (AccessoryType)(randomNum);
+			int randomNum = Random.Range(0, petData.accessories.Length + 1);
+			if(randomNum != petData.accessories.Length) {
+				accessorySprite = petData.accessories[randomNum];
+				accessoryType = (AccessoryType)(randomNum);
+			}
+			else {
+				accessorySprite = null;
+			}
 		}
 		else {
 			accessorySprite = petData.accessories[(int)(accessoryType) - 1]; ;
 		}
 
 		petImageAnimator.SetSpritesDublicateInner(petSprites.sprites);
+
 		accessoryImage.sprite = accessorySprite;
+		accessoryImage.color = accessoryImage.color.SetA(accessorySprite == null ? 0 : 1);
 	}
 
 	[Serializable]
