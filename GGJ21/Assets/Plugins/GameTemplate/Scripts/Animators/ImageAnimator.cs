@@ -23,14 +23,7 @@ public class ImageAnimator : MonoBehaviour {
 #endif
 
 	private void Awake() {
-		if (startWithRandom) {
-			currSprite = (byte)Random.Range(0, sprites.Length);
-			img.sprite = sprites[currSprite];
-			time = Random.Range(0, secondsForOneSprite - Time.deltaTime);
-		}
-		else {
-			img.sprite = sprites[currSprite];
-		}
+		Reinit();
 	}
 
 	void Update() {
@@ -49,7 +42,37 @@ public class ImageAnimator : MonoBehaviour {
 		}
 	}
 
+	public void SetSprites(Sprite[] _sprites) {
+		sprites = _sprites;
+
+		Reinit();
+	}
+
+	public void SetSpritesDublicateInner(Sprite[] _sprites) {
+		List<Sprite> list = new List<Sprite>(_sprites.Length * 2 - 2);
+		list.AddRange(_sprites);
+		for (int i = _sprites.Length - 1; i >= 1; --i)
+			list.Add(_sprites[i]);
+
+		sprites = list.ToArray();
+
+		Reinit();
+	}
+
 	public float GetDuration() {
 		return secondsForOneSprite * sprites.Length + secondsForOneSprite / 2;
+	}
+
+	void Reinit() {
+		if (startWithRandom) {
+			currSprite = (byte)Random.Range(0, sprites.Length);
+			time = Random.Range(0, secondsForOneSprite - Time.deltaTime);
+		}
+		else {
+			currSprite = 0;
+			time = 0;
+		}
+
+		img.sprite = sprites[currSprite];
 	}
 }
