@@ -54,7 +54,7 @@ The Global Game Jam is the world's largest game jam event taking place around th
 # Used assets:
  * Unity game template - https://github.com/Team-on/UnityGameTemplate
  * Assets from template - https://github.com/Team-on/UnityGameTemplate/wiki/Used-assets
- * link - where used
+ * [Nunito](https://fonts.google.com/specimen/Nunito) - font
 
 
 # Screenshots
