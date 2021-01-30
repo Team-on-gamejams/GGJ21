@@ -9,6 +9,7 @@ public class SpriteRendererAnimator : MonoBehaviour {
 	[SerializeField] bool startWithRandom = true;
 	[SerializeField] float secondsForOneSprite = 0.35f;
 	[SerializeField] [ReorderableList] Sprite[] sprites = null;
+	[SerializeField] SpriteRendererAnimator sameRandom = null;
 	[ReadOnly] [SerializeField] SpriteRenderer sr = null;
 
 	byte currSprite = 0;
@@ -29,6 +30,12 @@ public class SpriteRendererAnimator : MonoBehaviour {
 		}
 		else {
 			sr.sprite = sprites[currSprite];
+		}
+
+		if (sameRandom) {
+			currSprite = sameRandom.currSprite;
+			sr.sprite = sameRandom.sr.sprite;
+			time = sameRandom.time;
 		}
 	}
 

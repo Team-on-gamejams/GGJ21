@@ -1029,6 +1029,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114199745479478546, guid: 6c809c8c07559404f91943282277eee2,
         type: 3}
+      propertyPath: m_ruleTex
+      value: 
+      objectReference: {fileID: 2800000, guid: cab4886a21d34401bb93f6c7f2529bab, type: 3}
+    - target: {fileID: 114199745479478546, guid: 6c809c8c07559404f91943282277eee2,
+        type: 3}
       propertyPath: loadingBarParent
       value: 
       objectReference: {fileID: 7052802825514451059}
