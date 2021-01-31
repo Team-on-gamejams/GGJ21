@@ -482,6 +482,32 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b5f746d8289cd4f469773ba3e55395c9, type: 3}
     onWrongClickClip:
     - {fileID: 8300000, guid: 22df5065ce884ff4cb5b7a81ee19b9ea, type: 3}
+  - sprites:
+    - sprites:
+      - {fileID: 21300000, guid: 5546ef32cb8b8324a810d07629e67cd8, type: 3}
+      - {fileID: 21300000, guid: e0d8521014104694f803a813ace04891, type: 3}
+      - {fileID: 21300000, guid: b2ec2a4e471183d41a9d39e21708da1a, type: 3}
+    - sprites:
+      - {fileID: 21300000, guid: 1b25936afd9f53749b3771e0e62eb138, type: 3}
+      - {fileID: 21300000, guid: 58edb27669fd74040872e94731e39ff1, type: 3}
+      - {fileID: 21300000, guid: feeb43beeaae0c743bfb2877d997a719, type: 3}
+    - sprites:
+      - {fileID: 21300000, guid: fb7e2c0b77de04640a9fa9169463dcbd, type: 3}
+      - {fileID: 21300000, guid: 1154b8c16c3c69744b7b8f08a32cc016, type: 3}
+      - {fileID: 21300000, guid: 9591c13c66379204d917bfaadfa16166, type: 3}
+    accessories:
+    - {fileID: 21300000, guid: 5568dc93d3e071343b9c62e4ab9aa199, type: 3}
+    - {fileID: 21300000, guid: 705b7e97a0565a74f860e39d5ea1ce13, type: 3}
+    - {fileID: 21300000, guid: 2957392181afaf541b00518e6ae506ec, type: 3}
+    - {fileID: 21300000, guid: b069c0d7d6fed4b47ae74239c6aaa141, type: 3}
+    - {fileID: 21300000, guid: 42180af1596ca1c49a8f72318d9a9526, type: 3}
+    - {fileID: 21300000, guid: 2c857c8a761a2ef41ab820784eeac5eb, type: 3}
+    - {fileID: 21300000, guid: 84301b1b8d3642c498c6001ff0bdba69, type: 3}
+    - {fileID: 21300000, guid: 8d3a9445a18f3c9428060a4f86e38990, type: 3}
+    onRightClickClip:
+    - {fileID: 8300000, guid: 48b160d9fad7a1a499eba7cb783fe85a, type: 3}
+    onWrongClickClip:
+    - {fileID: 8300000, guid: 22df5065ce884ff4cb5b7a81ee19b9ea, type: 3}
   cardBack: {fileID: 4891988291158038281}
   petImage: {fileID: 4891988290849960307}
   petImageAnimator: {fileID: 544804230774715741}
