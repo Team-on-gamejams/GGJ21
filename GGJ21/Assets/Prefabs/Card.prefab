@@ -325,6 +325,10 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 47a44750298a1fb4c85ca7f12eb87226, type: 3}
     - {fileID: 21300000, guid: b54356a5377915b4e8d4804530f2a6f8, type: 3}
     - {fileID: 21300000, guid: 37129bee114f0cb408ab6bd701f6ea09, type: 3}
+    onRightClickClip:
+    - {fileID: 8300000, guid: 48b160d9fad7a1a499eba7cb783fe85a, type: 3}
+    onWrongClickClip:
+    - {fileID: 8300000, guid: 22df5065ce884ff4cb5b7a81ee19b9ea, type: 3}
   - sprites:
     - sprites:
       - {fileID: 21300000, guid: 9b0577dfbc061bb4b863fccfc5a8ae02, type: 3}
@@ -351,6 +355,10 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 27cf90e9f3a79e146bb68a72eeb668fe, type: 3}
     - {fileID: 21300000, guid: 62e12010c8305c44da62ca325604d85c, type: 3}
     - {fileID: 21300000, guid: 65a4ee108e921f94a975bed760295cf8, type: 3}
+    onRightClickClip:
+    - {fileID: 8300000, guid: 48b160d9fad7a1a499eba7cb783fe85a, type: 3}
+    onWrongClickClip:
+    - {fileID: 8300000, guid: 22df5065ce884ff4cb5b7a81ee19b9ea, type: 3}
   - sprites:
     - sprites:
       - {fileID: 21300000, guid: b302e519334656c4dac72607e115c112, type: 3}
@@ -377,6 +385,10 @@ MonoBehaviour:
     - {fileID: 21300000, guid: efec23d50fa235942b21074eb1c0d1ef, type: 3}
     - {fileID: 21300000, guid: a151ac68497de7f47929d7f22bff6b1f, type: 3}
     - {fileID: 21300000, guid: 9824ef85d94629c4882a6c763dab5779, type: 3}
+    onRightClickClip:
+    - {fileID: 8300000, guid: 48b160d9fad7a1a499eba7cb783fe85a, type: 3}
+    onWrongClickClip:
+    - {fileID: 8300000, guid: 22df5065ce884ff4cb5b7a81ee19b9ea, type: 3}
   - sprites:
     - sprites:
       - {fileID: 21300000, guid: 3895c4e725de05e43ad1bae07ea98389, type: 3}
@@ -403,6 +415,11 @@ MonoBehaviour:
     - {fileID: 21300000, guid: b17441238fc607f4abb5d66397189dff, type: 3}
     - {fileID: 21300000, guid: bccd9b316e5babf489e7658364f053cd, type: 3}
     - {fileID: 21300000, guid: 6d6816ba10b203240b6f05dd9aada873, type: 3}
+    onRightClickClip:
+    - {fileID: 8300000, guid: 7f4ab2ffb0d8c8347bb5022967a28741, type: 3}
+    - {fileID: 8300000, guid: b5f746d8289cd4f469773ba3e55395c9, type: 3}
+    onWrongClickClip:
+    - {fileID: 8300000, guid: 22df5065ce884ff4cb5b7a81ee19b9ea, type: 3}
   - sprites:
     - sprites:
       - {fileID: 21300000, guid: b1a2aa5adb0227d4cbe40e42532af2ec, type: 3}
@@ -429,6 +446,11 @@ MonoBehaviour:
     - {fileID: 21300000, guid: b679133720c99464eb4f5bfb99bf3c98, type: 3}
     - {fileID: 21300000, guid: 1aff783cd60f90147aeccd0a7b4a2d86, type: 3}
     - {fileID: 21300000, guid: bc9e04b979541244faf5e4c47be3fa89, type: 3}
+    onRightClickClip:
+    - {fileID: 8300000, guid: 7f4ab2ffb0d8c8347bb5022967a28741, type: 3}
+    - {fileID: 8300000, guid: b5f746d8289cd4f469773ba3e55395c9, type: 3}
+    onWrongClickClip:
+    - {fileID: 8300000, guid: 22df5065ce884ff4cb5b7a81ee19b9ea, type: 3}
   cardBack: {fileID: 4891988291158038281}
   petImage: {fileID: 4891988290849960307}
   petImageAnimator: {fileID: 544804230774715741}

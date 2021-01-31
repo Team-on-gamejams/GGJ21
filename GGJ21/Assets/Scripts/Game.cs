@@ -150,6 +150,8 @@ public class Game : MonoBehaviour {
 		if (isRight && Client.wantedAccessory != AccessoryType.None)
 			isRight = Client.wantedAccessory == cards[id].accessoryType;
 
+		cards[id].OnClick(isRight);
+
 		Debug.Log($"Is right: {isRight}");
 		return isRight;
 	}
@@ -157,6 +159,7 @@ public class Game : MonoBehaviour {
 	void OnSelectAnyCard(bool isRight) {
 		if(isRight)
 			clientLeftUI.UpdateValue(currClientId + 1, Level.clients);
+
 		dialog.Hide();
 
 		cardsSelector.IsCanSelect = false;

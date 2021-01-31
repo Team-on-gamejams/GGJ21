@@ -22,15 +22,15 @@ public class PetCard : MonoBehaviour {
 	[SerializeField] ImageAnimator petImageAnimator;
 	[SerializeField] Image accessoryImage;
 
+	PetData petData;
+	PetSpriteData petSprites;
+	Sprite accessorySprite;
+
 
 	#region Data
 	public void SetCard(PetType _petType, AccessoryType _accessoryType) {
 		petType = _petType;
 		accessoryType = _accessoryType;
-
-		PetData petData;
-		PetSpriteData petSprites;
-		Sprite accessorySprite;
 
 		if(petType == PetType.None) {
 			int randomNum = Random.Range(0, pets.Length);
@@ -62,10 +62,16 @@ public class PetCard : MonoBehaviour {
 		accessoryImage.color = accessoryImage.color.SetA(accessorySprite == null ? 0 : 1);
 	}
 
+	public void OnClick(bool isRight) {
+		AudioManager.Instance.Play(isRight ? petData.onRightClickClip.Random() : petData.onWrongClickClip.Random());
+	}
+
 	[Serializable]
 	struct PetData {
 		public PetSpriteData[] sprites;
 		public Sprite[] accessories;
+		public AudioClip[] onRightClickClip;
+		public AudioClip[] onWrongClickClip;
 	}
 
 	[Serializable]
