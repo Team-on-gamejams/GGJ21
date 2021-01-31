@@ -9,5 +9,10 @@ using NaughtyAttributes;
 using Random = UnityEngine.Random;
 
 public class TutorialOverlayMenu : MenuBase {
-	
+	private void Update() {
+		if (InputEx.IsAnyKeyPressedThisFrame()) {
+			enabled = false;
+			MenuManager.HideTopMenu();
+		}
+	}
 }

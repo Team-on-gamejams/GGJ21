@@ -50,6 +50,13 @@ public class Game : MonoBehaviour {
 		cardsSelector.OnSelectRight += OnSelectRight;
 
 		StartGame();
+
+		if(currLevelId == 1) {
+			menuManager.Show(tutorialOverlay, false);
+
+			currLevelTime = Level.secondsForLevel = 60 * 5;
+			timeLeftUI.UpdateValue(currLevelTime);
+		}
 	}
 
 	private void OnDestroy() {
