@@ -45,7 +45,8 @@ The Global Game Jam is the world's largest game jam event taking place around th
  * Unity 2020.2.0f1
  * Visual Studio 2019
  * Adobe Photoshop 2020
- * sfxr
+ * Procreate
+ * Garage Band
 
 
 # Used assets:
