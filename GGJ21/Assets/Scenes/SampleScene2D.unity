@@ -4663,7 +4663,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animTime: 0.2
   isCanReturnToMenu: 1
-  playOnForce: 0
+  playOnForce: 1
   openClip: {fileID: 8300000, guid: ab5f1226a54ffbc4c979803631fadfac, type: 3}
   closeClip: {fileID: 8300000, guid: bd7e54061f1a64b4e8c5fce3dbd1a041, type: 3}
   ambient: {fileID: 8300000, guid: 4bcd7fc8af323a24e89444fc7baa803b, type: 3}

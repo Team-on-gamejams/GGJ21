@@ -451,6 +451,37 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b5f746d8289cd4f469773ba3e55395c9, type: 3}
     onWrongClickClip:
     - {fileID: 8300000, guid: 22df5065ce884ff4cb5b7a81ee19b9ea, type: 3}
+  - sprites:
+    - sprites:
+      - {fileID: 21300000, guid: 07e3f4c80076a4e4b9a6c3f7f4bb8ca3, type: 3}
+      - {fileID: 21300000, guid: acd88aebd807a4c45945e6137402f63a, type: 3}
+      - {fileID: 21300000, guid: 89b60818e8fbad14cb03c67c069bb57b, type: 3}
+    - sprites:
+      - {fileID: 21300000, guid: 240371874ac75f84ab9a956ddc7e6edd, type: 3}
+      - {fileID: 21300000, guid: dc6f99317bf5145488c76c9eebf04a5c, type: 3}
+      - {fileID: 21300000, guid: b9296fcb92c441642bb4aa2a10eb912b, type: 3}
+    - sprites:
+      - {fileID: 21300000, guid: 255470b93bed576478b55e22b5872593, type: 3}
+      - {fileID: 21300000, guid: 0ebf47a47250ac24a8aa33c11b37beee, type: 3}
+      - {fileID: 21300000, guid: 820bf0bade852f249b1aa351003e019b, type: 3}
+    - sprites:
+      - {fileID: 21300000, guid: b76d56b484873774bbfef597347361ca, type: 3}
+      - {fileID: 21300000, guid: 7b464f31cd1fec44c9d1dd6ae7c5fa33, type: 3}
+      - {fileID: 21300000, guid: f2248d2fae83b7141b5afba6065bcccf, type: 3}
+    accessories:
+    - {fileID: 21300000, guid: b93e44cc9bb10ba46ab673c510c9b655, type: 3}
+    - {fileID: 21300000, guid: 9c212e49c83d3924fb088ed6585f0975, type: 3}
+    - {fileID: 21300000, guid: d779a522207768c4a98bea22bd4f8cea, type: 3}
+    - {fileID: 21300000, guid: c04d6f7beb900ac4e84039fbe562f12d, type: 3}
+    - {fileID: 21300000, guid: 045edb84cd23d9548a0017942a6f20a4, type: 3}
+    - {fileID: 21300000, guid: 59b090c28d5dacf4589569c42cc7e049, type: 3}
+    - {fileID: 21300000, guid: 0c041025a78ed26428a61fa088a020ca, type: 3}
+    - {fileID: 21300000, guid: 44b001be124341843b3faf19def6a2b1, type: 3}
+    onRightClickClip:
+    - {fileID: 8300000, guid: 7f4ab2ffb0d8c8347bb5022967a28741, type: 3}
+    - {fileID: 8300000, guid: b5f746d8289cd4f469773ba3e55395c9, type: 3}
+    onWrongClickClip:
+    - {fileID: 8300000, guid: 22df5065ce884ff4cb5b7a81ee19b9ea, type: 3}
   cardBack: {fileID: 4891988291158038281}
   petImage: {fileID: 4891988290849960307}
   petImageAnimator: {fileID: 544804230774715741}
