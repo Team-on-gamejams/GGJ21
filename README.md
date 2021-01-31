@@ -2,11 +2,11 @@
 Made in 48 hours for [Global Game Jam Online 2021](https://globalgamejam.org/2021/)  
 Theme: Lost & Found  
 
-Short desc  
+Puzzle about helping animals to find a home  
 
 ![Cover](ItchioPage/CoverImage.png) 
 
-Long desc  
+In this game, you play as the owner of Animal Shelter. Your core task is to help lost stray animals find their new home and new friends. You need to help your visitors choose a pet based on their preferences. Every visitor give you a short phrase which is a hint for a pick, and then decide which pet is best for them. Some phrases are odd but pay attention to every pet's special features, like spiked collar, pirate eye patch, or gold chain. Every day in Animal Shelter is a time trial so try to complete the task
 
 
 # Downloads and Links
@@ -22,12 +22,7 @@ Make sure to set the x86_64 as executable before running.
 
 
 #  How to play
- * Controls
- * Do this to win
- * Do that to lose
- 
-#  Tips
- * Tips
+ * Read clients dialog and choose the right pet
 
 
 # What is Global Game Jam?
@@ -35,7 +30,9 @@ The Global Game Jam is the world's largest game jam event taking place around th
 
 
 # Diversifiers
- * Share the source code of your project
+ * Kitchen sink: Players have a choice between at least three different types of input device (e.g. keyboard, controller, mouse, eye tracking, potatoes)
+ * RNG: Randomize Something that traditionally would not be randomized (e.g. jump height, starting location, hat, zoom level, gravity)
+ * Smells like Success: Design a game you can play with your nose
 
 
 # Credits
