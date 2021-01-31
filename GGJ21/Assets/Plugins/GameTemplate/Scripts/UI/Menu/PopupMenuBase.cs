@@ -13,7 +13,9 @@ public class PopupMenuBase : MenuBase {
 
 	protected bool isShowed = true;
 
-	private void Start() {
+	protected override void Awake() {
+		base.Awake();
+
 		RecalcPos();
 
 		cg.interactable = cg.blocksRaycasts = true;

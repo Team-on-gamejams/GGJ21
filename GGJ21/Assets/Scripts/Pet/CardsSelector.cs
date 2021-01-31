@@ -35,6 +35,13 @@ public class CardsSelector : MonoBehaviour {
 	[Header("Refs")]
 	[SerializeField] PetCard leftCard;
 	[SerializeField] PetCard rightCard;
+	[Space]
+	[SerializeField] Transform hideLeftAnchor;
+	[SerializeField] Transform hideRightAnchor;
+	[SerializeField] Transform openLeftAnchor;
+	[SerializeField] Transform openRightAnchor;
+	[SerializeField] Transform selectLeftAnchor;
+	[SerializeField] Transform selectRightAnchor;
 
 	PlayerInputActions actions;
 
@@ -49,6 +56,9 @@ public class CardsSelector : MonoBehaviour {
 		actions.Player.SelectRight.started += SelectRightCardStarted;
 		actions.Player.SelectLeft.canceled += SelectLeftCard;
 		actions.Player.SelectRight.canceled += SelectRightCard;
+
+		leftCard.transform.position = hideLeftAnchor.position;
+		rightCard.transform.position = hideRightAnchor.position;
 	}
 
 	private void OnDestroy() {
@@ -144,7 +154,7 @@ public class CardsSelector : MonoBehaviour {
 		}
 
 		Debug.Log("Hover On Left");
-		leftCard.Select();
+		leftCard.Select(selectLeftAnchor);
 	}
 
 	public void SelectRightCardStart() {
@@ -154,7 +164,7 @@ public class CardsSelector : MonoBehaviour {
 
 
 		Debug.Log("Hover On Right");
-		rightCard.Select();
+		rightCard.Select(selectRightAnchor);
 	}
 
 	public void SelectLeftCard() {
@@ -162,8 +172,8 @@ public class CardsSelector : MonoBehaviour {
 			return;
 
 		Debug.Log("Select Left");
-		OnSelectLeft();
 		SelectLeftCardEnd();
+		OnSelectLeft();
 	}
 
 	public void SelectRightCard() {
@@ -171,20 +181,42 @@ public class CardsSelector : MonoBehaviour {
 			return;
 
 		Debug.Log("Select Right");
-		OnSelectRight();
 		SelectRightCardEnd();
+		OnSelectRight();
 	}
 
 	public void SelectLeftCardEnd() {
 		Debug.Log("Not Hover On Left");
-		leftCard.Deselect();
+		leftCard.Deselect(openLeftAnchor);
 	}
 
 	public void SelectRightCardEnd() {
 		Debug.Log("Not Hover On Right");
-		rightCard.Deselect();
+		rightCard.Deselect(openRightAnchor);
 	}
 	#endregion
 
+	#region Animation
+	public void PlayShowAnimation() {
+		leftCard.transform.position = hideLeftAnchor.position;
+		rightCard.transform.position = hideRightAnchor.position;
 
+		LeanTween.cancel(leftCard.gameObject, true);
+		LeanTween.cancel(rightCard.gameObject, true);
+
+		leftCard.transform.localEulerAngles = leftCard.transform.localEulerAngles.SetZ(0.0f);
+		rightCard.transform.localEulerAngles = leftCard.transform.localEulerAngles.SetZ(0.0f);
+
+		LeanTween.move(leftCard.gameObject, openLeftAnchor, 0.2f).setEase(LeanTweenType.easeOutBack);
+		LeanTween.move(rightCard.gameObject, openRightAnchor, 0.2f).setEase(LeanTweenType.easeOutBack);
+	}
+
+	public void PlayHideAnimation() {
+		LeanTween.cancel(leftCard.gameObject, true);
+		LeanTween.cancel(rightCard.gameObject, true);
+
+		LeanTween.move(leftCard.gameObject, hideLeftAnchor, 0.2f).setEase(LeanTweenType.easeInBack);
+		LeanTween.move(rightCard.gameObject, hideRightAnchor, 0.2f).setEase(LeanTweenType.easeInBack);
+	}
+	#endregion
 }

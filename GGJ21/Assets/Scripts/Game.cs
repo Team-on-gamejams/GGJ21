@@ -135,63 +135,64 @@ public class Game : MonoBehaviour {
 		else {
 			LeanTween.delayedCall(0.3f, () => {
 				clientMover.StartNewClient();
+				cardsSelector.PlayShowAnimation();
+
+				if (currDialogData == dialogs.Length) {
+					currDialogData = 0;
+					dialogs.Shuffle();
+				}
+
+				DialogData data = dialogs[currDialogData];
+				PetType wantedPet = data.wantedPet;
+				++currDialogData;
+
+				if (wantedPet == PetType.Cat1) {
+					switch (Random.Range(0, 4)) {
+						case 0:
+							wantedPet = PetType.Cat1;
+							break;
+						case 1:
+							wantedPet = PetType.Cat2;
+							break;
+						case 2:
+							wantedPet = PetType.Cat3;
+							break;
+						case 3:
+							wantedPet = PetType.Cat4;
+							break;
+					}
+				}
+				else if (wantedPet == PetType.Dog1) {
+					switch (Random.Range(0, 3)) {
+						case 0:
+							wantedPet = PetType.Dog1;
+							break;
+						case 1:
+							wantedPet = PetType.Dog2;
+							break;
+						case 2:
+							wantedPet = PetType.Dog3;
+							break;
+					}
+				}
+
+				Client = new Client(
+					wantedPet,
+					data.wantedAccessory,
+					data.dialogText
+				);
+
+				if (Random.Range(0, 2) == 1) {
+					cards[0].SetCard(Client.wantedPet, Client.wantedAccessory);
+					cards[1].SetCard(PetType.None, AccessoryType.None);
+				}
+				else {
+					cards[0].SetCard(PetType.None, AccessoryType.None);
+					cards[1].SetCard(Client.wantedPet, Client.wantedAccessory);
+				}
 
 				LeanTween.delayedCall(0.3f, () => {
-					if(currDialogData == dialogs.Length) {
-						currDialogData = 0;
-						dialogs.Shuffle();
-					}
-
-					DialogData data = dialogs[currDialogData];
-					PetType wantedPet = data.wantedPet;
-					++currDialogData;
-
-					if (wantedPet == PetType.Cat1) {
-						switch (Random.Range(0, 4)) {
-							case 0:
-								wantedPet = PetType.Cat1;
-								break;
-							case 1:
-								wantedPet = PetType.Cat2;
-								break;
-							case 2:
-								wantedPet = PetType.Cat3;
-								break;
-							case 3:
-								wantedPet = PetType.Cat4;
-								break;
-						}
-					}
-					else if (wantedPet == PetType.Dog1) {
-						switch (Random.Range(0, 3)) {
-							case 0:
-								wantedPet = PetType.Dog1;
-								break;
-							case 1:
-								wantedPet = PetType.Dog2;
-								break;
-							case 2:
-								wantedPet = PetType.Dog3;
-								break;
-						}
-					}
-
-					Client = new Client(
-						wantedPet,
-						data.wantedAccessory,
-						data.dialogText
-					);
-
 					cardsSelector.IsCanSelect = true;
-
-					if (Random.Range(0, 2) == 1) {
-						cards[0].SetCard(Client.wantedPet, Client.wantedAccessory);
-						cards[1].SetCard(PetType.None, AccessoryType.None);
-					}
-					else {
-						cards[0].SetCard(PetType.None, AccessoryType.None);
-						cards[1].SetCard(Client.wantedPet, Client.wantedAccessory);
-					}
 
 					dialog.ShowText(Client.dialogText);
 				});
@@ -232,7 +233,9 @@ public class Game : MonoBehaviour {
 
 		cardsSelector.IsCanSelect = false;
 
-		if(isRight)
+		cardsSelector.PlayHideAnimation();
+
+		if (isRight)
 			++currClientId;
 		OnNewClient();
 	}

@@ -82,20 +82,34 @@ public class PetCard : MonoBehaviour {
 
 	#region Selection
 	
-	public void Select() {
+	public void Select(Transform pos) {
 		if (IsSelected)
 			return;
 		IsSelected = true;
 
-		cardBack.color = Color.yellow;
+		LeanTween.cancel(gameObject, true);
+
+		LeanTween.move(gameObject, pos, 0.2f).setEase(LeanTweenType.easeInQuad);
+
+		float angle = transform.GetComponent<RectTransform>().anchoredPosition.x < 0 ? -20.0f : 20.0f;
+		LeanTween.value(gameObject, gameObject.transform.eulerAngles.z, angle, 0.2f)
+			.setOnUpdate((float z)=> { 
+				gameObject.transform.eulerAngles = gameObject.transform.eulerAngles.SetZ(z);
+			});
 	}
 
-	public void Deselect() {
+	public void Deselect(Transform pos) {
 		if (!IsSelected)
 			return;
 		IsSelected = false;
 
-		cardBack.color = Color.white;
+		LeanTween.cancel(gameObject, true);
+
+		LeanTween.move(gameObject, pos, 0.2f).setEase(LeanTweenType.easeInQuad);
+		LeanTween.value(gameObject, gameObject.transform.eulerAngles.z >= 300 ? gameObject.transform.eulerAngles.z - 360 : gameObject.transform.eulerAngles.z, 0, 0.2f)
+			.setOnUpdate((float z) => {
+				gameObject.transform.eulerAngles = gameObject.transform.eulerAngles.SetZ(z);
+			});
 	}
 	#endregion
 }

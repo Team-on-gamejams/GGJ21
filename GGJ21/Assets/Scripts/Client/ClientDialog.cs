@@ -36,7 +36,7 @@ public class ClientDialog : MonoBehaviour {
 		})
 		.setOnComplete(()=> {
 			AudioManager.Instance.ChangeASVolume(writeAS, 0.0f, 0.1f);
-			Destroy(writeAS, 0.2f);
+			Destroy(writeAS.gameObject, 0.2f);
 		});
 
 	}
