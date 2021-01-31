@@ -26,6 +26,13 @@ public static class LeanTweenEx {
 			});
 	}
 
+	public static LTDescr ChangeAlpha(SpriteRenderer sr, float alpha, float animTime) {
+		return LeanTween.value(sr.gameObject, sr.color.a, alpha, animTime)
+			.setOnUpdate((float a) => {
+				sr.color = sr.color.SetA(a);
+			});
+	}
+
 	public static LTDescr ChangeColor(Image img, Color color, float animTime) {
 		return LeanTween.value(img.gameObject, img.color, color, animTime)
 			.setOnUpdate((Color c) => {

@@ -2122,6 +2122,7 @@ MonoBehaviour:
   - {fileID: 445597974}
   cardsSelector: {fileID: 269999651}
   dialog: {fileID: 2067065495}
+  clientMover: {fileID: 1824245982}
   clientMoverPrefab: {fileID: 7318900276332637494, guid: d62c419732dbe134286a33722f35444a,
     type: 3}
   currLevelId: 0
@@ -4559,6 +4560,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1796141137}
   m_CullTransparentMesh: 1
+--- !u!114 &1824245982 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7318900276332637491, guid: d62c419732dbe134286a33722f35444a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7318900276559287879}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff2ccc0725cbfff4781f009cf686a6bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1859817386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5696,7 +5709,7 @@ PrefabInstance:
     - target: {fileID: 2161882598265808968, guid: d62c419732dbe134286a33722f35444a,
         type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7318900276332637493, guid: d62c419732dbe134286a33722f35444a,
         type: 3}

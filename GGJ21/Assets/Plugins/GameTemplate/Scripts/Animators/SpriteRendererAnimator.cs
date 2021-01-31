@@ -23,6 +23,39 @@ public class SpriteRendererAnimator : MonoBehaviour {
 #endif
 
 	private void Start() {
+		Reinit();
+	}
+
+	void Update() {
+		time += Time.deltaTime;
+		if(time >= secondsForOneSprite) {
+			time -= secondsForOneSprite;
+			++currSprite;
+			if (currSprite == sprites.Length)
+				currSprite = 0;
+			if (sr)
+				sr.sprite = sprites[currSprite];
+		}
+	}
+
+	public void SetSprites(Sprite[] _sprites) {
+		sprites = _sprites;
+
+		Reinit();
+	}
+
+	public void SetSpritesDublicateInner(Sprite[] _sprites) {
+		List<Sprite> list = new List<Sprite>(_sprites.Length * 2 - 2);
+		list.AddRange(_sprites);
+		for (int i = _sprites.Length - 2; i >= 1; --i)
+			list.Add(_sprites[i]);
+
+		sprites = list.ToArray();
+
+		Reinit();
+	}
+
+	void Reinit() {
 		if (startWithRandom) {
 			currSprite = (byte)Random.Range(0, sprites.Length);
 			sr.sprite = sprites[currSprite];
@@ -36,18 +69,6 @@ public class SpriteRendererAnimator : MonoBehaviour {
 			currSprite = sameRandom.currSprite;
 			sr.sprite = sameRandom.sr.sprite;
 			time = sameRandom.time;
-		}
-	}
-
-	void Update() {
-		time += Time.deltaTime;
-		if(time >= secondsForOneSprite) {
-			time -= secondsForOneSprite;
-			++currSprite;
-			if (currSprite == sprites.Length)
-				currSprite = 0;
-			if (sr)
-				sr.sprite = sprites[currSprite];
 		}
 	}
 }

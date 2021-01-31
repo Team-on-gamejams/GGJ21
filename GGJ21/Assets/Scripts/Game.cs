@@ -22,7 +22,6 @@ public class Game : MonoBehaviour {
 	[SerializeField] LosePopupMenu losePopup;
 	[SerializeField] TutorialOverlayMenu tutorialOverlay;
 
-
 	[Header("UI"), Space]
 	[SerializeField] TimeLeftUI timeLeftUI;
 	[SerializeField] ClientLeftUI clientLeftUI;
@@ -32,6 +31,7 @@ public class Game : MonoBehaviour {
 	[SerializeField] PetCard[] cards;
 	[SerializeField] CardsSelector cardsSelector;
 	[SerializeField] ClientDialog dialog;
+	[SerializeField] ClientMover clientMover;
 
 	[Header("Prefab Refs"), Space]
 	[SerializeField] GameObject clientMoverPrefab;
@@ -94,9 +94,7 @@ public class Game : MonoBehaviour {
 		levelUI.UpdateValue($"Level: {currLevelId}");
 		clientLeftUI.UpdateValue(0, Level.clients);
 
-		LeanTween.delayedCall(1.0f, () => {
-			OnNewClient();
-		});
+		OnNewClient();
 	}
 
 	void EndLevel() {
@@ -114,6 +112,8 @@ public class Game : MonoBehaviour {
 	}
 
 	void OnNewClient() {
+		clientMover.EndClient();
+
 		if (currClientId == Level.clients) {
 			EndLevel();
 
@@ -121,30 +121,36 @@ public class Game : MonoBehaviour {
 			menuManager.Show(winPopup, false);
 		}
 		else {
-			bool randomPet = Random.Range(0, 2) == 1;
-			Array pets = Enum.GetValues(typeof(PetType));
-			Array accessory = Enum.GetValues(typeof(AccessoryType));
-			PetType pet = randomPet ? (PetType)pets.GetValue(Random.Range(0, pets.Length)) : PetType.None;
-			AccessoryType acs = !randomPet ? (AccessoryType)accessory.GetValue(Random.Range(0, accessory.Length)) : AccessoryType.None;
+			LeanTween.delayedCall(0.3f, () => {
+				clientMover.StartNewClient();
 
-			Client = new Client(
-				pet,
-				acs,
-				$"[{pet}] [{acs}] - Dialog text"
-			);
+				LeanTween.delayedCall(0.3f, () => {
+					bool randomPet = Random.Range(0, 2) == 1;
+					Array pets = Enum.GetValues(typeof(PetType));
+					Array accessory = Enum.GetValues(typeof(AccessoryType));
+					PetType pet = randomPet ? (PetType)pets.GetValue(Random.Range(0, pets.Length)) : PetType.None;
+					AccessoryType acs = !randomPet ? (AccessoryType)accessory.GetValue(Random.Range(0, accessory.Length)) : AccessoryType.None;
 
-			cardsSelector.IsCanSelect = true;
+					Client = new Client(
+						pet,
+						acs,
+						$"[{pet}] [{acs}] - Dialog text"
+					);
 
-			if(Random.Range(0, 2) == 1) {
-				cards[0].SetCard(Client.wantedPet, Client.wantedAccessory);
-				cards[1].SetCard(PetType.None, AccessoryType.None);
-			}
-			else {
-				cards[0].SetCard(PetType.None, AccessoryType.None);
-				cards[1].SetCard(Client.wantedPet, Client.wantedAccessory);
-			}
+					cardsSelector.IsCanSelect = true;
 
-			dialog.ShowText(Client.dialogText);
+					if (Random.Range(0, 2) == 1) {
+						cards[0].SetCard(Client.wantedPet, Client.wantedAccessory);
+						cards[1].SetCard(PetType.None, AccessoryType.None);
+					}
+					else {
+						cards[0].SetCard(PetType.None, AccessoryType.None);
+						cards[1].SetCard(Client.wantedPet, Client.wantedAccessory);
+					}
+
+					dialog.ShowText(Client.dialogText);
+				});
+			});
 		}
 	}
 
@@ -181,10 +187,8 @@ public class Game : MonoBehaviour {
 
 		cardsSelector.IsCanSelect = false;
 
-		LeanTween.delayedCall(1.0f, () => {
-			if(isRight)
-				++currClientId;
-			OnNewClient();
-		});
+		if(isRight)
+			++currClientId;
+		OnNewClient();
 	}
 }
