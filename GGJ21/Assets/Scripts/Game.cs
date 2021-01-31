@@ -15,6 +15,8 @@ public class Game : MonoBehaviour {
 	[Header("Data")]
 	[SerializeField] [MinMaxSlider(0, 3600)] Vector2 timerRange = new Vector2(60, 360f);
 	[SerializeField] [MinMaxSlider(0, 100)] Vector2 clientsRange = new Vector2(5, 20);
+	[SerializeField] DialogData[] dialogs;
+	int currDialogData;
 
 	[Header("Menu"), Space]
 	[SerializeField] MenuManager menuManager;
@@ -81,8 +83,11 @@ public class Game : MonoBehaviour {
 
 	void StartLevel() {
 		Debug.Log("Start level");
-
+		
 		Level = new Level(timerRange.GetRandomValueFloat(), clientsRange.GetRandomValue());
+
+		currDialogData = 0;
+		dialogs.Shuffle();
 
 		++currLevelId;
 		currClientId = 0;
@@ -125,16 +130,49 @@ public class Game : MonoBehaviour {
 				clientMover.StartNewClient();
 
 				LeanTween.delayedCall(0.3f, () => {
-					bool randomPet = Random.Range(0, 2) == 1;
-					Array pets = Enum.GetValues(typeof(PetType));
-					Array accessory = Enum.GetValues(typeof(AccessoryType));
-					PetType pet = randomPet ? (PetType)pets.GetValue(Random.Range(0, pets.Length)) : PetType.None;
-					AccessoryType acs = !randomPet ? (AccessoryType)accessory.GetValue(Random.Range(0, accessory.Length)) : AccessoryType.None;
+					if(currDialogData == dialogs.Length) {
+						currDialogData = 0;
+						dialogs.Shuffle();
+					}
+
+					DialogData data = dialogs[currDialogData];
+					PetType wantedPet = data.wantedPet;
+					++currDialogData;
+
+					if (wantedPet == PetType.Cat1) {
+						switch (Random.Range(0, 4)) {
+							case 0:
+								wantedPet = PetType.Cat1;
+								break;
+							case 1:
+								wantedPet = PetType.Cat2;
+								break;
+							case 2:
+								wantedPet = PetType.Cat3;
+								break;
+							case 3:
+								wantedPet = PetType.Cat4;
+								break;
+						}
+					}
+					else if (wantedPet == PetType.Dog1) {
+						switch (Random.Range(0, 3)) {
+							case 0:
+								wantedPet = PetType.Dog1;
+								break;
+							case 1:
+								wantedPet = PetType.Dog2;
+								break;
+							case 2:
+								wantedPet = PetType.Dog3;
+								break;
+						}
+					}
 
 					Client = new Client(
-						pet,
-						acs,
-						$"[{pet}] [{acs}] - Dialog text"
+						wantedPet,
+						data.wantedAccessory,
+						data.dialogText
 					);
 
 					cardsSelector.IsCanSelect = true;
@@ -190,5 +228,12 @@ public class Game : MonoBehaviour {
 		if(isRight)
 			++currClientId;
 		OnNewClient();
+	}
+
+	[Serializable]
+	struct DialogData {
+		public PetType wantedPet;
+		public AccessoryType wantedAccessory;
+		[Multiline] public string dialogText;
 	}
 }

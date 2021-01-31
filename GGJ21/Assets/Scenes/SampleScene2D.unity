@@ -2110,6 +2110,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerRange: {x: 60, y: 360}
   clientsRange: {x: 5, y: 20}
+  dialogs:
+  - wantedPet: 1
+    wantedAccessory: 0
+    dialogText: I need a lowkey and quiet pet
+  - wantedPet: 1
+    wantedAccessory: 0
+    dialogText: I don't have much space at my apartment
+  - wantedPet: 1
+    wantedAccessory: 0
+    dialogText: I don't like sports and outdoor activities
+  - wantedPet: 1
+    wantedAccessory: 0
+    dialogText: I need my pet to stay home alone for preetty long time
+  - wantedPet: 1
+    wantedAccessory: 0
+    dialogText: I'm introvert
+  - wantedPet: 4
+    wantedAccessory: 0
+    dialogText: I want an adventure buddy.
+  - wantedPet: 4
+    wantedAccessory: 0
+    dialogText: I like going for a walk in the park
+  - wantedPet: 4
+    wantedAccessory: 0
+    dialogText: I looking for a loyal companion
+  - wantedPet: 4
+    wantedAccessory: 0
+    dialogText: 'I want to teach my pet some cool tricks '
+  - wantedPet: 4
+    wantedAccessory: 0
+    dialogText: I'm extravert
+  - wantedPet: 0
+    wantedAccessory: 2
+    dialogText: I'm old fashioned. I like <i>collars with tag on it</i>
+  - wantedPet: 0
+    wantedAccessory: 6
+    dialogText: I like  <i>edgy</i> accessories.
+  - wantedPet: 0
+    wantedAccessory: 5
+    dialogText: I'm looking for a <color=blue>cute</color> pet
+  - wantedPet: 0
+    wantedAccessory: 7
+    dialogText: My pet is gonna be <i>awesome and badass</i>
+  - wantedPet: 0
+    wantedAccessory: 3
+    dialogText: I like <i>pirates</i>
+  - wantedPet: 0
+    wantedAccessory: 4
+    dialogText: <i>Hat</i> makes everything better.
+  - wantedPet: 0
+    wantedAccessory: 8
+    dialogText: '"*singing* ...the sleeves of my <color=#FFC0CB>sweater</color>,
+
+      Let''s
+      have an adventure.
+
+      Head in the clouds,
+
+      But my gravity''s centered..."'
+  - wantedPet: 0
+    wantedAccessory: 1
+    dialogText: Did you saw Travis Scott with all that <color="yellow>chains</color>.
+      Looks awesome.
+  - wantedPet: 7
+    wantedAccessory: 0
+    dialogText: I'm furr alergic
   menuManager: {fileID: 398123046}
   winPopup: {fileID: 1136375305067608474}
   losePopup: {fileID: 231140100}
@@ -4901,13 +4967,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Text
-
-    Long-long text
-
-    multiline ling text
-
-    one more line'
+  m_text: I like <i>pirates</i>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4757ddf8d7071a44a865861ea16b01a5, type: 2}
   m_sharedMaterial: {fileID: 5512761398755285921, guid: 4757ddf8d7071a44a865861ea16b01a5,
