@@ -147,6 +147,6 @@ public class ButtonAnimator : MonoBehaviour {
 	}
 
 	void OnExit() {
-		SetState(defaultScale, defaultColorImg, defaultColorText, defaultSprite);
+		SetState(defaultScale, defaultColorImg, defaultColorText, hoverSprite || !img ? defaultSprite : img.sprite);
 	}
 }
