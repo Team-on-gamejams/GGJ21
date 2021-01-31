@@ -183,12 +183,12 @@ public class Game : MonoBehaviour {
 				);
 
 				if (Random.Range(0, 2) == 1) {
-					cards[0].SetCard(Client.wantedPet, Client.wantedAccessory);
-					cards[1].SetCard(PetType.None, AccessoryType.None);
+					cards[0].SetCard(Client.wantedPet, Client.wantedAccessory, true);
+					cards[1].SetCard(Client.wantedPet, Client.wantedAccessory, false);
 				}
 				else {
-					cards[0].SetCard(PetType.None, AccessoryType.None);
-					cards[1].SetCard(Client.wantedPet, Client.wantedAccessory);
+					cards[0].SetCard(Client.wantedPet, Client.wantedAccessory, false);
+					cards[1].SetCard(Client.wantedPet, Client.wantedAccessory, true);
 				}
 
 				LeanTween.delayedCall(0.3f, () => {

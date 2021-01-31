@@ -6,6 +6,50 @@
             "updateName": "Global game jam edition",
             "descriptionText": "Jam prototype release",
             "notes": []
+        },
+        {
+            "version": "0.2",
+            "date": "1/31/2021",
+            "updateName": "Global game jam edition",
+            "descriptionText": "Jam prototype release+",
+            "notes": [
+                {
+                    "isCommunityFeedback": false,
+                    "type": 2,
+                    "scope": 1,
+                    "text": "1 new pet"
+                },
+                {
+                    "isCommunityFeedback": false,
+                    "type": 2,
+                    "scope": 1,
+                    "text": "New dialogs"
+                },
+                {
+                    "isCommunityFeedback": false,
+                    "type": 2,
+                    "scope": 3,
+                    "text": "5 new clients in 4 color variations"
+                },
+                {
+                    "isCommunityFeedback": false,
+                    "type": 2,
+                    "scope": 5,
+                    "text": "New UI animations"
+                },
+                {
+                    "isCommunityFeedback": false,
+                    "type": 2,
+                    "scope": 5,
+                    "text": "Win & Lose popups"
+                },
+                {
+                    "isCommunityFeedback": false,
+                    "type": 2,
+                    "scope": 6,
+                    "text": "New in-game music"
+                }
+            ]
         }
     ],
     "readme": "Game page - https://teamon.itch.io/ggj21\nSource code - https://github.com/Enter-your-name-studios/GGJ21\n\n\nAvailable in Windows, OSX, Linux, Android and Web \r\nIf you encounter any problem, please leave a issue! \nUse in-game form for that, report it in discord, or email me directly to timonsol13@gmail.com\n\r\nMac Version Notes:\r\nIf you get \"this package is from an unidentified developer\" right click (or control-click) and select open. You should now get the option to open anyways.\r\n\r\nLinux Version Notes:\r\nMake sure to set the x86_64 as executable before running.\r\n\n\nUsed assets:\nhttps://github.com/Team-on/UnityGameTemplate/wiki/Used-assets\nhttps://github.com/Enter-your-name-studios/GGJ21/blob/main/README.md"

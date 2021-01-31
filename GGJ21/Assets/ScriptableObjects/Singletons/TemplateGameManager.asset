@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TemplateGameManager
   m_EditorClassIdentifier: 
   startResources: 
-  buildNameString: 0.1 - Global game jam edition (1/31/2021)
+  buildNameString: 0.2 - Global game jam edition (1/31/2021)
   productName: Animal Shelter - Lost & Found
   uiinput: {fileID: 0}
   eventSystem: {fileID: 0}
