@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 251489272}
   - component: {fileID: 251489274}
   - component: {fileID: 251489273}
+  - component: {fileID: 251489275}
   m_Layer: 5
   m_Name: FunFact
   m_TagString: Untagged
@@ -518,6 +519,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251489271}
   m_CullTransparentMesh: 1
+--- !u!114 &251489275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251489271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f688ab43d875eff45929bf07c0652243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - 'Fun fact: Dogs bark and growl. Cats just meow sometimes.'
+  - 'Fun fact: Dogs like to go outside and to travel with you. '
+  - 'Fun fact: Cats are small, thus being prey to larger preditors. They like small
+    spaces and don''t mind apartments.'
+  - 'Fun fact: House dogs should be walked 3 times a day.'
+  - 'Fun fact: Cats are lazy and sleep over 15 hours.'
+  - 'Fun fact: The truth is that all dogs are pack creatures and are devoted to whomever
+    they see as their leader'
+  - 'Fun fact: Cats are typically solitary animals and don''t mind being left at
+    home alone.'
+  - 'Fun fact: Dogs are easy to train and learn any tricks. Cats are much harder
+    to train than dogs'
+  - 'Fun fact: Sphynx is non-alergic cat.'
+  textField: {fileID: 251489273}
 --- !u!1 &269999649
 GameObject:
   m_ObjectHideFlags: 0
@@ -2082,6 +2110,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerRange: {x: 60, y: 360}
   clientsRange: {x: 5, y: 20}
+  menuManager: {fileID: 398123046}
+  winPopup: {fileID: 1136375305067608474}
+  losePopup: {fileID: 231140100}
+  tutorialOverlay: {fileID: 2137455767}
   timeLeftUI: {fileID: 1075979145}
   clientLeftUI: {fileID: 524165526}
   levelUI: {fileID: 1347415321}
@@ -2217,6 +2249,7 @@ GameObject:
   - component: {fileID: 924563040}
   - component: {fileID: 924563042}
   - component: {fileID: 924563041}
+  - component: {fileID: 924563043}
   m_Layer: 5
   m_Name: FunFact
   m_TagString: Untagged
@@ -2341,6 +2374,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924563039}
   m_CullTransparentMesh: 1
+--- !u!114 &924563043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924563039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f688ab43d875eff45929bf07c0652243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - 'Fun fact: Dogs bark and growl. Cats just meow sometimes.'
+  - 'Fun fact: Dogs like to go outside and to travel with you. '
+  - 'Fun fact: Cats are small, thus being prey to larger preditors. They like small
+    spaces and don''t mind apartments.'
+  - 'Fun fact: House dogs should be walked 3 times a day.'
+  - 'Fun fact: Cats are lazy and sleep over 15 hours.'
+  - 'Fun fact: The truth is that all dogs are pack creatures and are devoted to whomever
+    they see as their leader'
+  - 'Fun fact: Cats are typically solitary animals and don''t mind being left at
+    home alone.'
+  - 'Fun fact: Dogs are easy to train and learn any tricks. Cats are much harder
+    to train than dogs'
+  - 'Fun fact: Sphynx is non-alergic cat.'
+  textField: {fileID: 924563041}
 --- !u!1 &1075979141
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,7 +3021,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 699603687}
     - target: {fileID: 7676828743458691071, guid: 175d8b4b549be85458818f12f1d96b4b,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
@@ -2970,12 +3030,12 @@ PrefabInstance:
     - target: {fileID: 7676828743458691071, guid: 175d8b4b549be85458818f12f1d96b4b,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Play
+      value: ClickOnEndGamePopup
       objectReference: {fileID: 0}
     - target: {fileID: 7676828743458691071, guid: 175d8b4b549be85458818f12f1d96b4b,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: TemplateMainMenu, GameTemplateGeneralAssembly
+      value: Game, GeneralGameAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 7676828743458691071, guid: 175d8b4b549be85458818f12f1d96b4b,
         type: 3}
@@ -3222,7 +3282,7 @@ PrefabInstance:
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 699603687}
     - target: {fileID: 7676828743458691071, guid: 175d8b4b549be85458818f12f1d96b4b,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
@@ -3231,12 +3291,12 @@ PrefabInstance:
     - target: {fileID: 7676828743458691071, guid: 175d8b4b549be85458818f12f1d96b4b,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: Play
+      value: ClickOnEndGamePopup
       objectReference: {fileID: 0}
     - target: {fileID: 7676828743458691071, guid: 175d8b4b549be85458818f12f1d96b4b,
         type: 3}
       propertyPath: onClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: TemplateMainMenu, GameTemplateGeneralAssembly
+      value: Game, GeneralGameAssembly
       objectReference: {fileID: 0}
     - target: {fileID: 7676828743458691071, guid: 175d8b4b549be85458818f12f1d96b4b,
         type: 3}
@@ -4719,7 +4779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0, y: -55.600098}
+  m_AnchoredPosition: {x: 34, y: -55.600098}
   m_SizeDelta: {x: 436, y: 339}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1951985469
@@ -5441,7 +5501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.29803923}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

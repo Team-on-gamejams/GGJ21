@@ -16,6 +16,13 @@ public class Game : MonoBehaviour {
 	[SerializeField] [MinMaxSlider(0, 3600)] Vector2 timerRange = new Vector2(60, 360f);
 	[SerializeField] [MinMaxSlider(0, 100)] Vector2 clientsRange = new Vector2(5, 20);
 
+	[Header("Menu"), Space]
+	[SerializeField] MenuManager menuManager;
+	[SerializeField] WinPopupMenu winPopup;
+	[SerializeField] LosePopupMenu losePopup;
+	[SerializeField] TutorialOverlayMenu tutorialOverlay;
+
+
 	[Header("UI"), Space]
 	[SerializeField] TimeLeftUI timeLeftUI;
 	[SerializeField] ClientLeftUI clientLeftUI;
@@ -58,9 +65,18 @@ public class Game : MonoBehaviour {
 
 			if (currLevelTime <= 0) {
 				EndLevel();
+				menuManager.Show(losePopup, false);
 			}
 		}
 
+	}
+
+	public void ClickOnEndGamePopup() {
+		TransitionManager.Instance.StartTransitonEffectIn(()=> {
+			menuManager.HideTopMenu(true);
+			StartLevel();
+			TransitionManager.Instance.StartTransitonEffectOut();
+		});
 	}
 
 	void StartLevel() {
@@ -87,6 +103,7 @@ public class Game : MonoBehaviour {
 		Debug.Log("End level");
 
 		isPlaying = enabled = false;
+		cardsSelector.IsCanSelect = false;
 	}
 
 	void StartGame() {
@@ -101,7 +118,7 @@ public class Game : MonoBehaviour {
 			EndLevel();
 
 			++currLevelId;
-			StartLevel();
+			menuManager.Show(winPopup, false);
 		}
 		else {
 			bool randomPet = Random.Range(0, 2) == 1;
