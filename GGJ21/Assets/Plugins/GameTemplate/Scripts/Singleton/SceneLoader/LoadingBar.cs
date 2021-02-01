@@ -67,7 +67,7 @@ public class LoadingBar : MonoBehaviour {
 			return;
 		}
 
-		AudioManager.Instance.MuteMusicAndDelete();
+		AudioManager.Instance.MuteMusicAndDelete(0.0f);
 		
 		bool needUI = (bool)data?["needUI"];
 		if (!needUI)

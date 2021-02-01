@@ -38,7 +38,7 @@ public class PetCard : MonoBehaviour {
 				do {
 					Array pets = Enum.GetValues(typeof(PetType));
 					petType = (PetType)pets.GetValue(Random.Range(0, pets.Length));
-				} while (petType == _petType);
+				} while (ISSameType(petType, _petType));
 			}
 
 			if (_accessoryType != AccessoryType.None) {
@@ -78,6 +78,18 @@ public class PetCard : MonoBehaviour {
 
 		accessoryImage.sprite = accessorySprite;
 		accessoryImage.color = accessoryImage.color.SetA(accessorySprite == null ? 0 : 1);
+
+		bool ISSameType(PetType t1, PetType t2) {
+			return (IsDog(t1) && IsDog(t2)) || (IsCat(t1) && IsCat(t2));
+		}
+
+		bool IsDog(PetType type) {
+			return type == PetType.Dog1 || type == PetType.Dog2 || type == PetType.Dog3;
+		}
+
+		bool IsCat(PetType type) {
+			return type == PetType.Cat1 || type == PetType.Cat2 || type == PetType.Cat3 || type == PetType.Cat4;
+		}
 	}
 
 	public void OnClick(bool isRight) {
